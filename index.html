@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO-51 Daily Protocol | Neurocognitive Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmic: {
+                            100: '#f0f4ff',
+                            200: '#d9e0ff',
+                            300: '#a6b1ff',
+                            400: '#6a7cff',
+                            500: '#3d56f5',
+                            600: '#2839d1',
+                            700: '#1c2a9e',
+                            800: '#131f6b',
+                            900: '#0c1540'
+                        },
+                        nebula: {
+                            100: '#f8f5ff',
+                            200: '#e8e0ff',
+                            300: '#d0c2ff',
+                            400: '#b8a4ff',
+                            500: '#9e86ff',
+                            600: '#7d68e6',
+                            700: '#5d4cb3',
+                            800: '#403480',
+                            900: '#25204d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #0c1540 0%, #131f6b 50%, #1c2a9e 100%);
+            color: #f0f4ff;
+            min-height: 100vh;
+        }
+        
+        .protocol-card {
+            background: rgba(28, 42, 158, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(125, 104, 230, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .protocol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(125, 104, 230, 0.4);
+        }
+        
+        .phase-tag {
+            border-left: 4px solid;
+            padding-left: 12px;
+            border-radius: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #6a7cff;
+        }
+        
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 22px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: #6a7cff;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .neuron-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(125, 104, 230, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(125, 104, 230, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+        
+        .gradient-highlight {
+            background: linear-gradient(90deg, #6a7cff, #b8a4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="relative font-sans">
+    <div class="neuron-grid"></div>
+    
+    <!-- Header Section -->
+    <header class="py-12 px-4 md:px-8 text-center relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-cosmic-500 to-nebula-500 flex items-center justify-center">
+                    <i class="fas fa-brain text-4xl text-white"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">OO-51 Daily Protocol</h1>
+            <h2 class="text-xl md:text-3xl font-medium mb-8 gradient-highlight">From Scratch to Peak (Fixed Routine)</h2>
+            <p class="max-w-3xl mx-auto text-nebula-200 text-lg mb-8">
+                "Neurocognitive engineering through directed inner architecture. Treat it as such. Execute daily."
+            </p>
+            
+            <div class="bg-cosmic-800 bg-opacity-50 rounded-xl p-6 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-nebula-400 text-xl mr-3"></i>
+                        <div>
+                            <div class="text-nebula-300 text-sm">Duration</div>
+                            <div class="font-medium">30–45 minutes</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar-day text-nebula-400 text-xl mr-3"></i>
+                        <div>
+                            <div class="text-nebula-300 text-sm">Time</div>
+                            <div class="font-medium">Same hour daily</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user text-nebula-400 text-xl mr-3"></i>
+                        <div>
+                            <div class="text-nebula-300 text-sm">Posture</div>
+                            <div class="font-medium">Seated or lying, still</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-lightbulb text-nebula-400 text-xl mr-3"></i>
+                        <div>
+                            <div class="text-nebula-300 text-sm">Environment</div>
+                            <div class="font-medium">Silent, dark or dim room</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="max-w-6xl mx-auto px-4 pb-20 relative z-10">
+        <!-- Phase I -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mr-4">
+                    <span class="font-bold text-white">I</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">PHASE I – GROUNDING & ENTRY <span class="text-xl text-nebula-400">(5 min)</span></h2>
+            </div>
+            
+            <div class="protocol-card p-6 md:p-8">
+                <ol class="space-y-6">
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                                <span class="font-bold text-white">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Intention Lock</h3>
+                            <p class="text-nebula-200">Mentally affirm: <span class="font-mono text-nebula-100">"This is my mind. I will build, enter, and control a world within it."</span></p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                                <span class="font-bold text-white">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Breath Stabilization</h3>
+                            <p class="text-nebula-200 mb-3">Inhale (4s), hold (4s), exhale (4s), hold (4s). Repeat 6 times.</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-blue-900">
+                                        <span class="text-xs">4s</span>
+                                    </div>
+                                    <span class="text-xs sm:text-sm mt-1 text-blue-300">Inhale</span>
+                                </div>
+                                
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-blue-700">
+                                        <span class="text-xs">4s</span>
+                                    </div>
+                                    <span class="text-xs sm:text-sm mt-1 text-blue-300">Hold</span>
+                                </div>
+                                
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-indigo-700">
+                                        <span class="text-xs">4s</span>
+                                    </div>
+                                    <span class="text-xs sm:text-sm mt-1 text-indigo-300">Exhale</span>
+                                </div>
+                                
+                                <div class="flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-indigo-900">
+                                        <span class="text-xs">4s</span>
+                                    </div>
+                                    <span class="text-xs sm:text-sm mt-1 text-indigo-300">Hold</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                                <span class="font-bold text-white">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Anchor Activation</h3>
+                            <p class="text-nebula-200">Choose and recall your grounding symbol. Example: Visualize a silver ring on your finger. It must remain stable across all sessions.</p>
+                            <div class="mt-3 flex">
+                                <div class="w-24 h-24 rounded-full border-2 border-nebula-500 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full border-2 border-gray-300 bg-gradient-to-br from-gray-100 to-gray-300 flex items-center justify-center">
+                                        <div class="w-4 h-4 bg-gray-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Phase II -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mr-4">
+                    <span class="font-bold text-white">II</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">PHASE II – WORLD CONSTRUCTION <span class="text-xl text-nebula-400">(15 min)</span></h2>
+            </div>
+            
+            <div class="text-nebula-200 mb-4 italic">Step-by-step layering. Never skip. Always same sequence.</div>
+            
+            <div class="protocol-card p-6 md:p-8">
+                <ol class="space-y-8">
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Visual Base <span class="text-base font-normal text-green-400">(3 min)</span></h3>
+                            <p class="text-nebula-200">Construct broad landscape or space. Sky, ground, light source, color palette. No motion yet.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-900 to-blue-700"></div>
+                                <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-green-900 to-green-700"></div>
+                                <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-yellow-700 to-yellow-500"></div>
+                                <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-purple-900 to-purple-700"></div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Auditory Layer <span class="text-base font-normal text-green-400">(2 min)</span></h3>
+                            <p class="text-nebula-200">Add ambient sounds: wind, water, voices, machinery, silence. Anchor sound to visual objects.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <div class="px-3 py-1 rounded-full bg-green-900 text-green-300 text-sm">🌬️ Wind</div>
+                                <div class="px-3 py-1 rounded-full bg-green-900 text-green-300 text-sm">💧 Water</div>
+                                <div class="px-3 py-1 rounded-full bg-green-900 text-green-300 text-sm">🗣️ Voices</div>
+                                <div class="px-3 py-1 rounded-full bg-green-900 text-green-300 text-sm">⚙️ Machinery</div>
+                                <div class="px-3 py-1 rounded-full bg-green-900 text-green-300 text-sm">🔇 Silence</div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Tactile Layer <span class="text-base font-normal text-green-400">(2 min)</span></h3>
+                            <p class="text-nebula-200">Feel ground under feet, air on skin, clothes on body. Engage proprioception by simulating body position.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">4</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Olfactory/Gustatory Layer <span class="text-base font-normal text-green-400">(2 min)</span></h3>
+                            <p class="text-nebula-200">Add smells (forest, ocean, city), then taste (if applicable). Optional but mandatory for depth.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">5</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Motion & Mapping <span class="text-base font-normal text-green-400">(3 min)</span></h3>
+                            <p class="text-nebula-200">Walk slowly. Turn head. Climb, descend, look behind. Map space by moving through it.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                                <span class="font-bold text-white">6</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Interaction Initiation <span class="text-base font-normal text-green-400">(3 min)</span></h3>
+                            <p class="text-nebula-200">Touch walls. Open doors. Pick objects. Summon a figure or guide. Engage directly.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Phase III -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mr-4">
+                    <span class="font-bold text-white">III</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">PHASE III – GOAL ENGAGEMENT <span class="text-xl text-nebula-400">(10 min)</span></h2>
+            </div>
+            
+            <div class="text-nebula-200 mb-4">Choose one fixed purpose per session. Rotate weekly.</div>
+            
+            <div class="protocol-card p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-br from-amber-900 to-amber-800 rounded-xl p-5">
+                        <div class="text-xl font-bold mb-2">Week 1:</div>
+                        <h3 class="text-lg font-bold text-amber-200 mb-2">Stress Resilience</h3>
+                        <p class="text-amber-100 text-sm">Enter challenging scenario. Stay calm. Observe self-reaction.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-900 to-orange-800 rounded-xl p-5">
+                        <div class="text-xl font-bold mb-2">Week 2:</div>
+                        <h3 class="text-lg font-bold text-orange-200 mb-2">Skill Practice</h3>
+                        <p class="text-orange-100 text-sm">Simulate physical or verbal skill. Execute slowly, then at real-time.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-red-900 to-red-800 rounded-xl p-5">
+                        <div class="text-xl font-bold mb-2">Week 3:</div>
+                        <h3 class="text-lg font-bold text-red-200 mb-2">Emotional Processing</h3>
+                        <p class="text-red-100 text-sm">Face symbol of fear, regret, grief. Engage with detachment.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl p-5">
+                        <div class="text-xl font-bold mb-2">Week 4:</div>
+                        <h3 class="text-lg font-bold text-purple-200 mb-2">Philosophical Inquiry</h3>
+                        <p class="text-purple-100 text-sm">Ask inner guide one fixed question. Watch response, not judge.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-amber-900 bg-opacity-30 border border-amber-700 rounded-lg p-4">
+                    <p class="text-amber-200 italic">Maintain narrative integrity. No detours. No fantasies. Treat it as training, not escape.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Phase IV -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center mr-4">
+                    <span class="font-bold text-white">IV</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold">PHASE IV – EXIT & REINTEGRATION <span class="text-xl text-nebula-400">(5 min)</span></h2>
+            </div>
+            
+            <div class="protocol-card p-6 md:p-8">
+                <ol class="space-y-6">
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center">
+                                <span class="font-bold text-white">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Scene Dissolution</h3>
+                            <p class="text-nebula-200">Visualize environment dimming or fading. Walk back to entry point or see space collapsing.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center">
+                                <span class="font-bold text-white">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Anchor Recall</h3>
+                            <p class="text-nebula-200">Reaffirm presence of ring/talisman/grounding cue. Say mentally: <span class="font-mono text-nebula-100">"This is my body. This is my world."</span></p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center">
+                                <span class="font-bold text-white">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Open Eyes Slowly</h3>
+                            <p class="text-nebula-200">Wiggle fingers. Touch a nearby physical object. Reassert sensory dominance of real-world input.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="flex">
+                        <div class="flex-shrink-0 mr-4 mt-1">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center">
+                                <span class="font-bold text-white">4</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Record Immediately</h3>
+                            <p class="text-nebula-200">One-page handwritten summary. What was seen, heard, felt, achieved, resisted. No editing. Archive daily.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Non-Negotiables & Timeline -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Non-Negotiables -->
+            <div>
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-ban text-red-500 text-2xl mr-3"></i>
+                    <h2 class="text-2xl md:text-3xl font-bold">Non-Negotiables</h2>
+                </div>
+                
+                <div class="protocol-card p-6 md:p-8">
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <i class="fas fa-circle text-xs mt-2 mr-3 text-red-400"></i>
+                            <span>Same routine, same order, no improvisation</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-circle text-xs mt-2 mr-3 text-red-400"></i>
+                            <span>Missed session = restart week from Day 1</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-circle text-xs mt-2 mr-3 text-red-400"></i>
+                            <span>No music, no external media, no voice guides</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-circle text-xs mt-2 mr-3 text-red-400"></i>
+                            <span>No emotional indulgence. Pure observation and interaction only</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-circle text-xs mt-2 mr-3 text-red-400"></i>
+                            <span>Treat as sovereign ritual, not optional habit</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6 p-4 bg-red-900 bg-opacity-30 rounded-lg border border-red-700">
+                        <p class="text-red-200 italic">OO-51 is not fantasy. It is neurocognitive engineering through directed inner architecture. Treat it as such. Execute daily.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Milestone Timeline -->
+            <div>
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-mountain text-teal-400 text-2xl mr-3"></i>
+                    <h2 class="text-2xl md:text-3xl font-bold">Milestone Timeline</h2>
+                </div>
+                
+                <div class="protocol-card p-6 md:p-8">
+                    <div class="timeline-item">
+                        <div class="font-bold mb-1">Day 1–7</div>
+                        <p class="text-nebula-200">Sensory clarity, spatial stability</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="font-bold mb-1">Day 8–14</div>
+                        <p class="text-nebula-200">Movement realism, interaction depth</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="font-bold mb-1">Day 15–21</div>
+                        <p class="text-nebula-200">Emotional response mapping</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="font-bold mb-1">Day 22–30</div>
+                        <p class="text-nebula-200">Symbolic processing, narrative autonomy</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="font-bold mb-1">Day 31+</div>
+                        <p class="text-nebula-200">Full scene control, cognitive rewiring, abstract insight integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Commitment Section -->
+        <div class="protocol-card p-8 text-center mb-12">
+            <div class="max-w-2xl mx-auto">
+                <i class="fas fa-seedling text-4xl text-green-400 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Commit to the Process</h3>
+                <p class="text-nebula-200 mb-6">The OO-51 Protocol requires unwavering dedication. This is not meditation for relaxation, but cognitive engineering for mental transformation. Approach each session with the discipline of a scientist and the focus of a master craftsman.</p>
+                <div class="inline-block px-6 py-3 bg-gradient-to-r from-nebula-600 to-cosmic-600 rounded-full font-bold text-white hover:from-nebula-500 hover:to-cosmic-500 transition-all duration-300 transform hover:scale-105">Begin Your Daily Practice</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="py-8 text-center text-nebula-300 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>OO-51 Daily Protocol v1.0 | Neurocognitive Engineering System</p>
+            <p class="mt-2">This protocol is designed for cognitive transformation. Consult a professional before beginning any intensive mental practice.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Add subtle animation to protocol cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.protocol-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
